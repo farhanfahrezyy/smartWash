@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartWash.ID - POS Laundry + Otomasi Mesin Terdepan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#667eea',
+                        secondary: '#764ba2',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'bounce-slow': 'bounce 2s infinite',
+                        'fade-in-up': 'fadeInUp 0.8s ease-out',
+                        'fade-in-left': 'fadeInLeft 0.8s ease-out',
+                        'fade-in-right': 'fadeInRight 0.8s ease-out',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        fadeInLeft: {
+                            '0%': { opacity: '0', transform: 'translateX(-30px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' }
+                        },
+                        fadeInRight: {
+                            '0%': { opacity: '0', transform: 'translateX(30px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-text {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .glass {
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        .hero-pattern {
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(255,255,255,0.1) 0%, transparent 50%);
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/90 glass border-b border-white/20 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="text-2xl font-bold gradient-text">
+                        <i class="fas fa-tint mr-2"></i>SmartWash.ID
+                    </div>
+                </div>
+                
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#fitur" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Fitur</a>
+                        <a href="#harga" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Harga</a>
+                        <a href="#tentang" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Tentang</a>
+                        <a href="#kontak" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Kontak</a>
+                    </div>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <button class="bg-gradient-to-r from-primary to-secondary text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300">
+                        Demo Gratis
+                    </button>
+                    <button class="md:hidden text-gray-700">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen bg-gradient-to-br from-primary via-purple-600 to-secondary flex items-center justify-center relative overflow-hidden hero-pattern">
+        <div class="absolute inset-0">
+            <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-white/10 rounded-full blur-3xl animate-float"></div>
+            <div class="absolute top-3/4 right-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl animate-float" style="animation-delay: -3s;"></div>
+            <div class="absolute bottom-1/4 left-1/3 w-48 h-48 bg-white/10 rounded-full blur-2xl animate-float" style="animation-delay: -1.5s;"></div>
+        </div>
+        
+        <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="animate-fade-in-up">
+                <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+                    Revolusi Digital untuk
+                    <span class="block text-yellow-300">Bisnis Laundry</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
+                    POS laundry pintar dengan otomasi mesin, pembayaran QRIS, dan monitoring real-time. 
+                    Tingkatkan efisiensi bisnis laundry Anda hingga 300%
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <button class="bg-white text-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transform hover:-translate-y-1 hover:shadow-2xl transition-all duration-300 flex items-center">
+                        <i class="fas fa-play mr-3"></i>
+                        Coba Demo Gratis
+                    </button>
+                    <button class="border-2 border-white/50 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white/10 hover:border-white transition-all duration-300 flex items-center">
+                        <i class="fas fa-phone mr-3"></i>
+                        Konsultasi Gratis
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-white/70 text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 bg-white relative">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="animate-fade-in-up">
+                    <div class="text-4xl md:text-5xl font-bold gradient-text mb-2">1000+</div>
+                    <div class="text-gray-600 font-medium">Laundry Terdaftar</div>
+                </div>
+                <div class="animate-fade-in-up" style="animation-delay: 0.1s;">
+                    <div class="text-4xl md:text-5xl font-bold gradient-text mb-2">50K+</div>
+                    <div class="text-gray-600 font-medium">Transaksi/Bulan</div>
+                </div>
+                <div class="animate-fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="text-4xl md:text-5xl font-bold gradient-text mb-2">24/7</div>
+                    <div class="text-gray-600 font-medium">Support</div>
+                </div>
+                <div class="animate-fade-in-up" style="animation-delay: 0.3s;">
+                    <div class="text-4xl md:text-5xl font-bold gradient-text mb-2">99.9%</div>
+                    <div class="text-gray-600 font-medium">Uptime</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="fitur" class="py-20 bg-gradient-to-b from-white to-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold gradient-text mb-4">
+                    Fitur Unggulan SmartWash
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Solusi lengkap untuk mengelola bisnis laundry modern dengan teknologi terdepan
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="group bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100">
+                    <div class="w-16 h-16 bg-gradient-to-r from-primary to-secondary rounded-2xl flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-cash-register"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">POS Laundry Spesifik</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Sistem kasir khusus laundry dengan tarif per-kg, per-item, atau per-durasi. 
+                        Cetak struk & label, nomor antrian, diskon, dan paket membership.
+                    </p>
+                    <div class="mt-6 flex items-center text-primary font-semibold group-hover:text-secondary transition-colors">
+                        Pelajari lebih lanjut <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="group bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100">
+                    <div class="w-16 h-16 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-power-off"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Otomatis Matikan Mesin</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Modul IoT memutus daya dengan aman saat siklus selesai, limit menit tercapai, 
+                        saldo habis, atau tombol darurat ditekan.
+                    </p>
+                    <div class="mt-6 flex items-center text-primary font-semibold group-hover:text-secondary transition-colors">
+                        Pelajari lebih lanjut <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="group bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100">
+                    <div class="w-16 h-16 bg-gradient-to-r from-green-400 to-blue-500 rounded-2xl flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-qrcode"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Pembayaran QRIS</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Terima QRIS & e-wallet populer. Pembayaran langsung tercatat ke POS, 
+                        rekonsiliasi jadi cepat dan akurat.
+                    </p>
+                    <div class="mt-6 flex items-center text-primary font-semibold group-hover:text-secondary transition-colors">
+                        Pelajari lebih lanjut <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="group bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100">
+                    <div class="w-16 h-16 bg-gradient-to-r from-purple-400 to-pink-500 rounded-2xl flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Monitoring Real-time</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Lihat status tiap mesin (idle, running, selesai), sisa waktu, dan histori pemakaian. 
+                        Atur antrian agar tidak bottleneck.
+                    </p>
+                    <div class="mt-6 flex items-center text-primary font-semibold group-hover:text-secondary transition-colors">
+                        Pelajari lebih lanjut <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="group bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100">
+                    <div class="w-16 h-16 bg-gradient-to-r from-indigo-400 to-purple-600 rounded-2xl flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Laporan & Analitik</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Omzet, jam sibuk, beban mesin, performa kasir/cabang. 
+                        Ekspor ke Excel sekali klik untuk analisis mendalam.
+                    </p>
+                    <div class="mt-6 flex items-center text-primary font-semibold group-hover:text-secondary transition-colors">
+                        Pelajari lebih lanjut <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="group bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100">
+                    <div class="w-16 h-16 bg-gradient-to-r from-red-400 to-pink-600 rounded-2xl flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Keamanan & Akses</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Role-based access, log aktivitas, E-Stop pusat yang memutus seluruh mesin 
+                        untuk kondisi darurat.
+                    </p>
+                    <div class="mt-6 flex items-center text-primary font-semibold group-hover:text-secondary transition-colors">
+                        Pelajari lebih lanjut <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-primary to-secondary relative overflow-hidden">
+        <div class="absolute inset-0 bg-black/10"></div>
+        <div class="absolute top-0 left-0 w-full h-full">
+            <div class="absolute top-1/4 -left-16 w-32 h-32 bg-white/10 rounded-full blur-xl"></div>
+            <div class="absolute bottom-1/4 -right-16 w-48 h-48 bg-white/10 rounded-full blur-2xl"></div>
+        </div>
+        
+        <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8 relative z-10">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                Siap Transformasi Bisnis Laundry Anda?
+            </h2>
+            <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed">
+                Bergabung dengan 1000+ pemilik laundry yang sudah merasakan kemudahan SmartWash. 
+                Dapatkan demo gratis sekarang!
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-white text-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transform hover:-translate-y-1 hover:shadow-xl transition-all duration-300 flex items-center justify-center">
+                    <i class="fas fa-rocket mr-3"></i>
+                    Mulai Demo Gratis
+                </button>
+                <button class="border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition-all duration-300 flex items-center justify-center">
+                    <i class="fas fa-phone mr-3"></i>
+                    Hubungi Sales
+                </button>
+            </div>
+            <div class="mt-8 text-white/80 text-sm">
+                <i class="fas fa-check mr-2"></i>Setup gratis
+                <span class="mx-4">•</span>
+                <i class="fas fa-check mr-2"></i>Training gratis
+                <span class="mx-4">•</span>
+                <i class="fas fa-check mr-2"></i>Support 24/7
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="col-span-2">
+                    <div class="text-2xl font-bold gradient-text mb-4">
+                        <i class="fas fa-tint mr-2"></i>SmartWash.ID
+                    </div>
+                    <p class="text-gray-400 mb-6 max-w-md">
+                        Solusi POS laundry terdepan dengan teknologi otomasi dan IoT. 
+                        Dirancang khusus untuk bisnis laundry Indonesia.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-whatsapp text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-primary">Produk</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">POS Laundry</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">IoT Module</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Mobile App</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Analytics</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-primary">Support</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Dokumentasi</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Tutorial</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">FAQ</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Live Chat</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 SmartWash.ID. All rights reserved. Made with ❤️ for Indonesian Laundry Business</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-white/95');
+                nav.classList.remove('bg-white/90');
+            } else {
+                nav.classList.add('bg-white/90');
+                nav.classList.remove('bg-white/95');
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.group').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
