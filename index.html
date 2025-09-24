@@ -60,9 +60,11 @@
                 radial-gradient(circle at 25% 25%, rgba(255,255,255,0.1) 0%, transparent 50%),
                 radial-gradient(circle at 75% 75%, rgba(255,255,255,0.1) 0%, transparent 50%);
         }
+        /* Global offset for anchor scrolling to avoid navbar overlap */
+        html { scroll-padding-top: 6rem; }
     </style>
 </head>
-<body class="font-sans bg-gray-50">
+<body class="font-sans bg-gray-50 overflow-x-hidden">
     <!-- Navigation -->
     <nav class="fixed top-0 w-full bg-white/90 glass border-b border-white/20 z-50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -73,29 +75,41 @@
                     </div>
                 </div>
                 
-                <div class="hidden md:block">
+				<div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="#fitur" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Fitur</a>
-                        <a href="#harga" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Harga</a>
-                        <a href="#tentang" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Tentang</a>
-                        <a href="#kontak" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Kontak</a>
+						<a href="#fitur" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Fitur</a>
+						<a href="#harga" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Harga</a>
+						<a href="#cara-kerja" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Cara kerja</a>
+						<a href="#tentang" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Tentang</a>
+						<a href="#kontak" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Kontak</a>
                     </div>
                 </div>
 
-                <div class="flex items-center space-x-4">
+				<div class="flex items-center space-x-4">
                     <button class="bg-gradient-to-r from-primary to-secondary text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300">
                         Demo Gratis
                     </button>
-                    <button class="md:hidden text-gray-700">
-                        <i class="fas fa-bars text-xl"></i>
+					<button id="menu-toggle" class="md:hidden text-gray-700">
+						<i class="fas fa-bars text-xl" id="menu-icon"></i>
                     </button>
                 </div>
             </div>
         </div>
     </nav>
 
+	<!-- Mobile Menu -->
+	<div id="mobile-menu" class="md:hidden hidden bg-white/95 glass border-b border-white/20">
+		<div class="max-w-7xl mx-auto px-4 py-3 grid gap-3">
+			<a href="#fitur" class="block text-gray-700 py-2">Fitur</a>
+			<a href="#harga" class="block text-gray-700 py-2">Harga</a>
+			<a href="#cara-kerja" class="block text-gray-700 py-2">Cara kerja</a>
+			<a href="#tentang" class="block text-gray-700 py-2">Tentang</a>
+			<a href="#kontak" class="block text-gray-700 py-2">Kontak</a>
+		</div>
+	</div>
+
     <!-- Hero Section -->
-	<section class="min-h-screen bg-gradient-to-br from-orange-500 via-orange-400 to-orange-300 flex items-center justify-center relative overflow-hidden hero-pattern">
+	<section class="min-h-screen bg-gradient-to-br from-orange-500 via-orange-400 to-orange-300 flex items-center justify-center relative overflow-hidden hero-pattern pt-24 md:pt-28">
         <div class="absolute inset-0">
             <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-white/10 rounded-full blur-3xl animate-float"></div>
             <div class="absolute top-3/4 right-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl animate-float" style="animation-delay: -3s;"></div>
@@ -112,12 +126,12 @@
                     POS laundry pintar dengan otomasi mesin, pembayaran QRIS, dan monitoring real-time. 
                     Tingkatkan efisiensi bisnis laundry Anda hingga 300%
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-					<button class="bg-white text-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transform hover:-translate-y-1 hover:shadow-2xl transition-all duration-300 flex items-center">
+				<div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+					<button class="w-full sm:w-auto bg-white text-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transform hover:-translate-y-1 hover:shadow-2xl transition-all duration-300 flex items-center justify-center">
                         <i class="fas fa-play mr-3"></i>
                         Coba Demo Gratis
                     </button>
-					<button class="backdrop-blur-md bg-white/10 border border-white/30 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white/20 hover:border-white/50 transition-all duration-300 flex items-center">
+					<button class="w-full sm:w-auto backdrop-blur-md bg-white/10 border border-white/30 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white/20 hover:border-white/50 transition-all duration-300 flex items-center justify-center">
                         <i class="fas fa-phone mr-3"></i>
                         Konsultasi Gratis
                     </button>
@@ -131,10 +145,66 @@
         </div>
     </section>
 
+    <!-- About Section (moved up) -->
+    <section id="tentang" class="py-20 bg-white scroll-mt-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">Semua yang Anda butuhkan<br class="hidden sm:block"/> untuk operasional laundry</h2>
+                    <p class="text-gray-600 text-lg mb-6">SmartWash.ID memadukan POS khusus laundry, otomasi mesin berbasis IoT, dan pembayaran modern dalam satu ekosistem yang mudah dipakai.</p>
+
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start"><i class="fas fa-circle-check text-orange-500 mt-1 mr-3"></i><span class="text-gray-700">Dashboard real-time: status mesin, timer, dan antrian</span></li>
+                        <li class="flex items-start"><i class="fas fa-circle-check text-orange-500 mt-1 mr-3"></i><span class="text-gray-700">Pembayaran QRIS & e-wallet terintegrasi ke POS</span></li>
+                        <li class="flex items-start"><i class="fas fa-circle-check text-orange-500 mt-1 mr-3"></i><span class="text-gray-700">Aturan otomatisasi yang aman dan fleksibel</span></li>
+                    </ul>
+
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <a href="#harga" class="bg-orange-600 text-white px-6 py-3 rounded-full font-semibold text-center hover:bg-orange-700 transition">Lihat Harga</a>
+                        <a href="#fitur" class="border border-gray-300 text-gray-800 px-6 py-3 rounded-full font-semibold text-center hover:bg-gray-50 transition">Jelajahi Fitur</a>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <div class="absolute -top-6 -left-6 w-24 h-24 bg-orange-200/60 rounded-3xl blur-2xl"></div>
+                    <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-amber-200/50 rounded-3xl blur-2xl"></div>
+
+                    <div class="glass bg-white/70 rounded-3xl p-6 shadow-xl border border-white/40">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="rounded-2xl bg-gradient-to-br from-orange-50 to-white border border-white/50 p-4">
+                                <div class="text-sm text-gray-500">Uptime</div>
+                                <div class="text-2xl font-bold text-orange-600">99.9%</div>
+                            </div>
+                            <div class="rounded-2xl bg-gradient-to-br from-orange-50 to-white border border-white/50 p-4">
+                                <div class="text-sm text-gray-500">Laundry</div>
+                                <div class="text-2xl font-bold text-orange-600">1000+</div>
+                            </div>
+                            <div class="rounded-2xl bg-gradient-to-br from-orange-50 to-white border border-white/50 p-4">
+                                <div class="text-sm text-gray-500">Transaksi/bln</div>
+                                <div class="text-2xl font-bold text-orange-600">50K+</div>
+                            </div>
+                            <div class="rounded-2xl bg-gradient-to-br from-orange-50 to-white border border-white/50 p-4">
+                                <div class="text-sm text-gray-500">Support</div>
+                                <div class="text-2xl font-bold text-orange-600">24/7</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 items-center">
+                        <div class="text-gray-500 text-sm">Dipercaya oleh</div>
+                        <div class="h-10 rounded-xl bg-gray-100 flex items-center justify-center text-gray-400 text-xs">Brand A</div>
+                        <div class="h-10 rounded-xl bg-gray-100 flex items-center justify-center text-gray-400 text-xs">Brand B</div>
+                        <div class="h-10 rounded-xl bg-gray-100 flex items-center justify-center text-gray-400 text-xs">Brand C</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Stats Section -->
     <section class="py-16 bg-white relative">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-center">
                 <div class="animate-fade-in-up">
                     <div class="text-4xl md:text-5xl font-bold gradient-text mb-2">1000+</div>
                     <div class="text-gray-600 font-medium">Laundry Terdaftar</div>
@@ -156,20 +226,20 @@
     </section>
 
     <!-- Features Section -->
-    <section id="fitur" class="py-20 bg-gradient-to-b from-white to-gray-50">
+    <section id="fitur" class="py-20 bg-gradient-to-b from-white to-gray-50 scroll-mt-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold gradient-text mb-4">
+            <div class="text-center mb-10 md:mb-16">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold gradient-text leading-tight pb-6 md:mb-8">
                     Fitur Unggulan SmartWash
                 </h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
                     Solusi lengkap untuk mengelola bisnis laundry modern dengan teknologi terdepan
                 </p>
             </div>
 
-			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                 <!-- Feature 1 -->
-				<div class="group bg-white/60 glass p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-white/40">
+				<div class="group bg-white/60 glass p-6 md:p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-white/40">
 					<div class="w-16 h-16 bg-gradient-to-r from-orange-500 to-orange-400 rounded-2xl flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
                         <i class="fas fa-cash-register"></i>
                     </div>
@@ -184,8 +254,8 @@
                 </div>
 
                 <!-- Feature 2 -->
-				<div class="group bg-white/60 glass p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-white/40">
-					<div class="w-16 h-16 bg-gradient-to-r from-orange-400 to-amber-400 rounded-2xl flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
+				<div class="group bg-white/60 glass p-6 md:p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-white/40">
+					<div class="w-16 h-16 bg-gradient-to-r from-orange-500 to-orange-400 rounded-2xl flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
                         <i class="fas fa-power-off"></i>
                     </div>
                     <h3 class="text-2xl font-bold text-gray-800 mb-4">Otomatis Matikan Mesin</h3>
@@ -199,8 +269,8 @@
                 </div>
 
                 <!-- Feature 3 -->
-				<div class="group bg-white/60 glass p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-white/40">
-					<div class="w-16 h-16 bg-gradient-to-r from-orange-400 to-orange-500 rounded-2xl flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
+				<div class="group bg-white/60 glass p-6 md:p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-white/40">
+					<div class="w-16 h-16 bg-gradient-to-r from-orange-500 to-orange-400 rounded-2xl flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
                         <i class="fas fa-qrcode"></i>
                     </div>
                     <h3 class="text-2xl font-bold text-gray-800 mb-4">Pembayaran QRIS</h3>
@@ -214,7 +284,7 @@
                 </div>
 
                 <!-- Feature 4 -->
-				<div class="group bg-white/60 glass p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-white/40">
+				<div class="group bg-white/60 glass p-6 md:p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-white/40">
 					<div class="w-16 h-16 bg-gradient-to-r from-amber-500 to-orange-400 rounded-2xl flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
                         <i class="fas fa-desktop"></i>
                     </div>
@@ -229,7 +299,7 @@
                 </div>
 
                 <!-- Feature 5 -->
-				<div class="group bg-white/60 glass p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-white/40">
+				<div class="group bg-white/60 glass p-6 md:p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-white/40">
 					<div class="w-16 h-16 bg-gradient-to-r from-orange-500 to-amber-500 rounded-2xl flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
                         <i class="fas fa-chart-line"></i>
                     </div>
@@ -260,6 +330,132 @@
             </div>
         </div>
     </section>
+
+		<!-- How It Works Section -->
+		<section id="cara-kerja" class="py-20 bg-gray-50 scroll-mt-24">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="mb-12">
+					<h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">Cara kerja</h2>
+					<p class="text-gray-600 text-lg max-w-3xl">Instal cepat, kendali penuh. Cocok untuk mesin rumahan maupun komersial (kompatibilitas akan disurvei).</p>
+				</div>
+
+				<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+					<!-- Step 1 -->
+					<div class="bg-white/70 glass rounded-3xl p-6 md:p-8 shadow-lg border border-white/40">
+                        <div class="w-10 h-10 rounded-full bg-orange-600 text-white flex items-center justify-center font-bold mb-6">1</div>
+						<h3 class="text-xl font-semibold text-gray-900 mb-3">Pasang Modul IoT</h3>
+						<p class="text-gray-600">Teknisi memasang modul (relay/adapter kompatibel) pada panel listrik tiap mesin cuci/pengering Anda.</p>
+					</div>
+
+					<!-- Step 2 -->
+					<div class="bg-white/70 glass rounded-3xl p-6 md:p-8 shadow-lg border border-white/40">
+                        <div class="w-10 h-10 rounded-full bg-orange-600 text-white flex items-center justify-center font-bold mb-6">2</div>
+						<h3 class="text-xl font-semibold text-gray-900 mb-3">Hubungkan ke POS</h3>
+						<p class="text-gray-600">Semua mesin muncul di dashboard: status, timer, dan tombol Start/Stop yang terhubung ke order pelanggan.</p>
+					</div>
+
+					<!-- Step 3 -->
+					<div class="bg-white/70 glass rounded-3xl p-6 md:p-8 shadow-lg border border-white/40">
+                        <div class="w-10 h-10 rounded-full bg-orange-600 text-white flex items-center justify-center font-bold mb-6">3</div>
+						<h3 class="text-xl font-semibold text-gray-900 mb-3">Tetapkan Aturan</h3>
+						<p class="text-gray-600">Atur kapan mesin dimatikan otomatis: selesai siklus, batas menit, limit saldo, atau kebijakan keamanan.</p>
+					</div>
+
+					<!-- Step 4 -->
+					<div class="bg-white/70 glass rounded-3xl p-6 md:p-8 shadow-lg border border-white/40">
+                        <div class="w-10 h-10 rounded-full bg-orange-600 text-white flex items-center justify-center font-bold mb-6">4</div>
+						<h3 class="text-xl font-semibold text-gray-900 mb-3">Operasikan & Pantau</h3>
+						<p class="text-gray-600">Kasir membuat order, memilih mesin, memulai hitungan. Sistem mematikan mesin sesuai aturan & mencatat biaya.</p>
+					</div>
+				</div>
+
+				<!-- Safety Note -->
+				<div class="mt-10 rounded-3xl p-8 bg-gradient-to-r from-orange-100 to-amber-100 border border-white/40 shadow-inner">
+					<p class="text-center text-gray-700"><span class="font-semibold">Catatan keselamatan:</span> Instalasi listrik wajib oleh teknisi bersertifikat dan mengikuti regulasi setempat. Dukungan model/merk mesin dapat berbeda.</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- Pricing Section -->
+		<section id="harga" class="py-20 bg-gradient-to-b from-white to-gray-50 scroll-mt-24">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="mb-12">
+					<h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">Harga yang simpel</h2>
+					<p class="text-gray-600 text-lg max-w-3xl">Semua paket termasuk pembaruan & dukungan. Instalasi modul IoT dihitung terpisah.</p>
+				</div>
+
+				<div class="grid md:grid-cols-3 gap-6 md:gap-8">
+					<!-- Starter -->
+					<div class="bg-white/70 glass rounded-3xl p-6 md:p-8 shadow-lg border border-white/40 flex flex-col justify-between">
+						<div>
+							<h3 class="text-lg font-semibold text-gray-800 mb-2">Starter</h3>
+							<p class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">Rp199rb<span class="text-gray-500 text-xl font-bold">/bulan</span></p>
+							<ul class="space-y-3 mb-6">
+								<li class="flex items-center text-gray-700"><i class="fas fa-check text-emerald-500 mr-3"></i>1 cabang, 3 mesin</li>
+								<li class="flex items-center text-gray-700"><i class="fas fa-check text-emerald-500 mr-3"></i>POS Laundry + QRIS</li>
+								<li class="flex items-center text-gray-700"><i class="fas fa-check text-emerald-500 mr-3"></i>Notifikasi pelanggan</li>
+							</ul>
+						</div>
+					<button class="self-stretch md:self-start bg-white text-orange-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 shadow transition">Pilih Starter</button>
+					</div>
+
+					<!-- Pro -->
+					<div class="relative bg-white/80 glass rounded-3xl p-6 md:p-8 shadow-xl border-2 border-orange-500 flex flex-col justify-between">
+					<div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-orange-600 text-white text-xs px-3 py-1 rounded-full shadow">Paling populer</div>
+						<div>
+							<h3 class="text-lg font-semibold text-gray-800 mb-2">Pro</h3>
+							<p class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">Rp399rb<span class="text-gray-500 text-xl font-bold">/bulan</span></p>
+							<ul class="space-y-3 mb-6">
+								<li class="flex items-center text-gray-700"><i class="fas fa-check text-emerald-500 mr-3"></i>3 cabang, 12 mesin</li>
+								<li class="flex items-center text-gray-700"><i class="fas fa-check text-emerald-500 mr-3"></i>Otomasi matikan mesin</li>
+								<li class="flex items-center text-gray-700"><i class="fas fa-check text-emerald-500 mr-3"></i>Laporan & ekspor Excel</li>
+								<li class="flex items-center text-gray-700"><i class="fas fa-check text-emerald-500 mr-3"></i>Dukungan prioritas</li>
+							</ul>
+						</div>
+					<button class="self-stretch md:self-start bg-orange-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-orange-700 shadow transition">Pilih Pro</button>
+					</div>
+
+					<!-- Enterprise -->
+					<div class="bg-white/70 glass rounded-3xl p-6 md:p-8 shadow-lg border border-white/40 flex flex-col justify-between">
+						<div>
+							<h3 class="text-lg font-semibold text-gray-800 mb-2">Enterprise</h3>
+							<p class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">Hubungi kami</p>
+							<ul class="space-y-3 mb-6">
+								<li class="flex items-center text-gray-700"><i class="fas fa-check text-emerald-500 mr-3"></i>Tanpa batas cabang/mesin</li>
+								<li class="flex items-center text-gray-700"><i class="fas fa-check text-emerald-500 mr-3"></i>Integrasi ERP/API</li>
+								<li class="flex items-center text-gray-700"><i class="fas fa-check text-emerald-500 mr-3"></i>SLA & pelatihan onsite</li>
+							</ul>
+						</div>
+					<button class="self-stretch md:self-start bg-white text-orange-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 shadow transition">Diskusi Kebutuhan</button>
+					</div>
+				</div>
+
+				<p class="text-sm text-gray-500 mt-6">*Harga dan fitur dapat berubah. Hubungi tim kami untuk penawaran resmi.</p>
+			</div>
+		</section>
+
+ 
+
+		<!-- Contact Section -->
+		<section id="kontak" class="py-20 bg-gray-50 scroll-mt-24">
+			<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+				<h2 class="text-3xl sm:text-4xl md:text-4xl font-bold text-gray-900 mb-8">Kontak</h2>
+				<div class="grid md:grid-cols-3 gap-4 sm:gap-6">
+					<div class="bg-white/70 glass p-6 rounded-2xl shadow border border-white/40">
+						<h3 class="font-semibold text-gray-800 mb-2"><i class="fas fa-phone text-orange-500 mr-2"></i>Telepon</h3>
+						<p class="text-gray-600">Hubungi sales untuk konsultasi kebutuhan Anda.</p>
+					</div>
+					<div class="bg-white/70 glass p-6 rounded-2xl shadow border border-white/40">
+						<h3 class="font-semibold text-gray-800 mb-2"><i class="fab fa-whatsapp text-green-500 mr-2"></i>WhatsApp</h3>
+						<p class="text-gray-600">Fast response. Klik tombol di header untuk chat.</p>
+					</div>
+					<div class="bg-white/70 glass p-6 rounded-2xl shadow border border-white/40">
+						<h3 class="font-semibold text-gray-800 mb-2"><i class="fas fa-envelope text-orange-500 mr-2"></i>Email</h3>
+						<p class="text-gray-600">Kirim kebutuhan Anda, kami bantu rekomendasikan paket terbaik.</p>
+					</div>
+				</div>
+			</div>
+		</section>
 
     <!-- CTA Section -->
 	<section class="py-20 bg-gradient-to-r from-orange-500 to-orange-400 relative overflow-hidden">
@@ -298,25 +494,25 @@
     </section>
 
     <!-- Footer -->
-	<footer class="bg-gray-950 text-white py-12">
+    <footer class="bg-white text-gray-900 py-12 border-t border-gray-200">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-4 gap-8">
+            <div class="grid md:grid-cols-4 gap-6 md:gap-8">
                 <div class="col-span-2">
                     <div class="text-2xl font-bold gradient-text mb-4">
                         <i class="fas fa-tint mr-2"></i>SmartWash.ID
                     </div>
-                    <p class="text-gray-400 mb-6 max-w-md">
+                    <p class="text-gray-600 mb-6 max-w-md">
                         Solusi POS laundry terdepan dengan teknologi otomasi dan IoT. 
                         Dirancang khusus untuk bisnis laundry Indonesia.
                     </p>
                     <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <a href="#" class="text-gray-600 hover:text-orange-600 transition-colors">
                             <i class="fab fa-facebook-f text-xl"></i>
                         </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <a href="#" class="text-gray-600 hover:text-orange-600 transition-colors">
                             <i class="fab fa-instagram text-xl"></i>
                         </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <a href="#" class="text-gray-600 hover:text-orange-600 transition-colors">
                             <i class="fab fa-whatsapp text-xl"></i>
                         </a>
                     </div>
@@ -325,25 +521,25 @@
                 <div>
 					<h3 class="text-lg font-semibold mb-4 gradient-text">Produk</h3>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">POS Laundry</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">IoT Module</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Mobile App</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Analytics</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-orange-600 transition-colors">POS Laundry</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-orange-600 transition-colors">IoT Module</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-orange-600 transition-colors">Mobile App</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-orange-600 transition-colors">Analytics</a></li>
                     </ul>
                 </div>
                 
                 <div>
 					<h3 class="text-lg font-semibold mb-4 gradient-text">Support</h3>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Dokumentasi</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Tutorial</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">FAQ</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Live Chat</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-orange-600 transition-colors">Dokumentasi</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-orange-600 transition-colors">Tutorial</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-orange-600 transition-colors">FAQ</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-orange-600 transition-colors">Live Chat</a></li>
                     </ul>
                 </div>
             </div>
             
-            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+            <div class="border-t border-gray-200 mt-12 pt-8 text-center text-gray-600">
                 <p>&copy; 2024 SmartWash.ID. All rights reserved. Made with ❤️ for Indonesian Laundry Business</p>
             </div>
         </div>
@@ -364,7 +560,7 @@
             });
         });
 
-        // Navbar background on scroll
+		// Navbar background on scroll
         window.addEventListener('scroll', function() {
             const nav = document.querySelector('nav');
             if (window.scrollY > 50) {
@@ -376,7 +572,32 @@
             }
         });
 
-        // Intersection Observer for animations
+		// Mobile menu toggle
+		const menuToggle = document.getElementById('menu-toggle');
+		const menuIcon = document.getElementById('menu-icon');
+		const mobileMenu = document.getElementById('mobile-menu');
+		if (menuToggle && mobileMenu) {
+			menuToggle.addEventListener('click', () => {
+				mobileMenu.classList.toggle('hidden');
+				if (mobileMenu.classList.contains('hidden')) {
+					menuIcon.classList.remove('fa-xmark');
+					menuIcon.classList.add('fa-bars');
+				} else {
+					menuIcon.classList.remove('fa-bars');
+					menuIcon.classList.add('fa-xmark');
+				}
+			});
+
+			mobileMenu.querySelectorAll('a[href^="#"]').forEach(link => {
+				link.addEventListener('click', () => {
+					mobileMenu.classList.add('hidden');
+					menuIcon.classList.remove('fa-xmark');
+					menuIcon.classList.add('fa-bars');
+				});
+			});
+		}
+
+		// Intersection Observer for animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -390,10 +611,32 @@
             });
         }, observerOptions);
 
-        // Observe elements for animation
+		// Observe elements for animation
         document.querySelectorAll('.group').forEach(el => {
             observer.observe(el);
         });
+
+		// Scrollspy for navbar active state
+		const navLinks = Array.from(document.querySelectorAll('nav a[href^="#"]'));
+		const sections = navLinks
+			.map(link => document.querySelector(link.getAttribute('href')))
+			.filter(Boolean);
+
+		function setActive(link) {
+			navLinks.forEach(a => a.classList.remove('text-primary', 'font-semibold'));
+			link.classList.add('text-primary', 'font-semibold');
+		}
+
+		const spy = new IntersectionObserver((entries) => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					const active = navLinks.find(a => a.getAttribute('href') === `#${entry.target.id}`);
+					if (active) setActive(active);
+				}
+			});
+		}, { root: null, threshold: 0.6 });
+
+		sections.forEach(sec => spy.observe(sec));
     </script>
 </body>
 </html>
